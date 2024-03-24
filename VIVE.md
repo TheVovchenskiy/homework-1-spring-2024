@@ -12,7 +12,8 @@ bug{
 - [1 Соискатель](#1-соискатель)
   - [1.1 Страница авторизации](#11-страница-авторизации)
   - [1.2 Страница регистрации](#12-страница-регистрации)
-  - [1.3 Страница вакансий](#13-страница-вакансий)
+  - [1.3 Хедер](#13-хедер)
+  - [1.4 Список вакансий](#14-список-вакансий)
 
 Проект доступен по [ссылке](http://212.233.90.231:8085/vacs).
 
@@ -24,7 +25,7 @@ bug{
 
 Форма авторизации соискателем представлена на рисунке
 
-![app-auth-form](./images/app-auth-form/form.png)
+![app-auth-form](./images/applicant/auth-form/form.png)
 
 - поле `Электронная почта`:
 
@@ -32,50 +33,50 @@ bug{
 
   - при ошибке валидации выводится соответсвующее сообщение об ошибке
 
-    ![app-auth-invalid-email-error](./images/app-auth-form/invalid-email-error.png)
+    ![app-auth-invalid-email-error](./images/applicant/auth-form/invalid-email-error.png)
 
   - при вводе одних пробелов в поле возникает следующее сообщение об ошибке
 
-    ![app-auth-empty-email-error](./images/app-auth-form/empty-email-error.png)
+    ![app-auth-empty-email-error](./images/applicant/auth-form/empty-email-error.png)
 
   - при вводе нескольких слов в поле, возникает следующее сообщение об ошибке
 
-    ![app-auth-email-one-word-error](./images/app-auth-form/email-one-word-error.png)
+    ![app-auth-email-one-word-error](./images/applicant/auth-form/email-one-word-error.png)
 
   - при валидном значении в поле сообщения не возникает
 
 - <bug>⚠ BUG:</bug> при попытке отправки пустых полей в каждом поле возникает сообщение об ошибке
 
-  ![app-auth-required-fields-error](./images/app-auth-form/required-fields-error.png)
+  ![app-auth-required-fields-error](./images/applicant/auth-form/required-fields-error.png)
 
 - при отправке неверных данных возникает общая ошибка
 
-  ![app-auth-invalid-email-or-password-error](./images/app-auth-form/invalid-email-or-password-error.png)
+  ![app-auth-invalid-email-or-password-error](./images/applicant/auth-form/invalid-email-or-password-error.png)
 
 - при всех валидных заполненных полях сообщений об ошибках нет, пользователя редиректит на страницу с вакансиями
 
 ### 1.2 Страница регистрации
 
 Форма регистрации соискателем представлена на рисунке
-![app-reg-form](./images/app-reg-form/form.png)
+![app-reg-form](./images/applicant/reg-form/form.png)
 
 - поля формы `Имя`, `Фамилия`:
 
   - обязательные поля для заполнения, иначе, если не заполнены или заполнены пробелами, то выводится сообщения об ошибке
 
-    ![app-reg-name-required-error](./images/app-reg-form/name/required-error.png)
+    ![app-reg-name-required-error](./images/applicant/reg-form/name/required-error.png)
 
   - должны содержать одно слово, иначе выводится сообщение об ошибке
 
-    ![app-reg-name-one-word-error](./images/app-reg-form/name/one-word-error.png)
+    ![app-reg-name-one-word-error](./images/applicant/reg-form/name/one-word-error.png)
 
   - не должны содержать цифр, иначе выводится сообщение об ошибке
 
-    ![app-reg-name-digits-error](/images/app-reg-form/name/digits-error.png)
+    ![app-reg-name-digits-error](/images/applicant/reg-form/name/digits-error.png)
 
   - не должны быть длиннее 20 символов, иначе выводится сообщение об ошибке
 
-    ![app-reg-name-max-len-error](./images/app-reg-form/name/max-len-error.png)
+    ![app-reg-name-max-len-error](./images/applicant/reg-form/name/max-len-error.png)
 
 - поле `Электронная почта`
 
@@ -83,19 +84,19 @@ bug{
 
   - должно содержать одно слово, иначе выводится сообщение об ошибке
 
-    ![app-reg-form-email-one-word-error](./images/app-reg-form/email/one-word-error.png)
+    ![app-reg-form-email-one-word-error](./images/applicant/reg-form/email/one-word-error.png)
 
   - при невалидном значении выводится сообщение об ошибке
 
-    ![app-reg-form-email-invalid-email-error](./images/app-reg-form/email/invalid-email-error.png)
+    ![app-reg-form-email-invalid-email-error](./images/applicant/reg-form/email/invalid-email-error.png)
 
   - в ситуации, когда пользователь с введенной электронной почтой уже существует, выводится общее сообщение об ошибке
 
-    ![app-reg-form-email-already-exist-error](./images/app-reg-form/email/already-exist-error.png)
+    ![app-reg-form-email-already-exist-error](./images/applicant/reg-form/email/already-exist-error.png)
 
   - при некорректном домене почты выведится общее сообщение об ошибке
 
-    ![app-reg-form-email-invalid-domain](./images/app-reg-form/email/invalid-domain.png)
+    ![app-reg-form-email-invalid-domain](./images/applicant/reg-form/email/invalid-domain.png)
 
 - поле `Придумайте пароль`:
 
@@ -106,14 +107,44 @@ bug{
     - должен содержать цифры
   - при неудовлетварении требованиям сложности пароля выводится сообщение об ошибке
 
-    ![app-reg-form-password-password-error](./images/app-reg-form/password/password-error.png)
+    ![app-reg-form-password-password-error](./images/applicant/reg-form/password/password-error.png)
 
 - поле `Повторите пароль`:
 
   - должно совпадать со значением в поле `Придумайте пароль`, иначе выводится сообщение об ошибке
 
-    ![app-reg-form-password-match-error](./images/app-reg-form/password/match-error.png)
+    ![app-reg-form-password-match-error](./images/applicant/reg-form/password/match-error.png)
 
 - при отсутствии ошибок, сообщений нет, пользователя редиректит на страницу с вакансиями
 
-### 1.3 Страница вакансий
+### 1.3 Хедер
+
+Хедер у авторизованного соискателя выглядит следующим образом
+
+![applicant-header](./images/applicant/header/layout.png)
+
+- лого содерижит ссылку на главную страницу сайта
+- кнопка `Мои резюме` ведет на страницу с резюме пользователя
+- кнопка `Соискатели` ведет на страницу со списком соискателей
+- кнопка `Вакансии` ведет на страницу со списком доступных вакансий
+- при нажатии на кнопку поиска появляется поисковая строка, все элеменры слева кроме лого скрываются
+
+  ![applicant-header-search-bar](./images/applicant/header/search-bar.png)
+  
+  - по кнопке слева можно установить, где будет происходить поиск
+  - по кнопке справа выполняется сам поиск
+  - по черной стрелке справа строка скрывается
+- кнопка `Создать резюме` ведет на странцу создать резюме
+- кнопка в виде сердца ведет к избранным вакансиям пользователя
+- при нажатии на кнопку `бургер` иконка поворачивается на 90° и появляется всплывающее меню
+
+  ![applicant-header-drop-down-menu](./images/applicant/header/drop-down-menu.png)
+
+  - кнопка `Профиль` ведет в раздел профиля пользователя
+  - кнопка `Отклики` ведет в раздел откликов пользователя
+  - <bug>⚠ BUG:</bug> кнопка `Сменить роль` переводит пользователя из соискателя в работодателя, если он создавал аккаунт с другой ролью до этого, иначе ведет на страницу создания новой роли для его электронной почты
+  - кнопка `Выход из аккаунта` происходит разлогинивание пользователя
+
+### 1.4 Список вакансий
+
+
